@@ -46,7 +46,7 @@ class CustomUserOutSchema(BaseModel):
     status: StatusChoices = StatusChoices.GUEST
     data_registered: date
 class CustomUserInputSchema(BaseModel):
-    username: str | int = Field(min_length=3, max_length=30)
+    username: str = Field(min_length=3, max_length=30)
     password: str = Field(min_length=6)
     email: EmailStr
     age: Optional[int] = Field(ge=18, le=100)
