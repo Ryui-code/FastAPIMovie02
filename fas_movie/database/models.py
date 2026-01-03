@@ -46,7 +46,7 @@ class CustomUser(Base):
     status: Mapped[StatusChoices] = mapped_column(Enum(StatusChoices), default=StatusChoices.GUEST)
     data_registered: Mapped[date] = mapped_column(Date, default=date.today)
 
-    users_actor: Mapped[Actor] = relationship('Actor', back_populates='user', uselist=False)
+    users_actor: Mapped['Actor'] = relationship('Actor', back_populates='user', uselist=False)
     users_token: Mapped[List[CustomUserRefreshToken]] = relationship(
         'CustomUserRefreshToken',
         back_populates='token_user',
