@@ -10,7 +10,7 @@ RUN pip install --upgrade pip &&  \
     pip install -r requirements.txt
 
 
-COPY ngnix.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY . /app/
 
