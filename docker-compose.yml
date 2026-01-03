@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  FastMovies:
+  fast_movies:
     build: .
     command: >
     volumes:
@@ -31,7 +31,7 @@ services:
       - static_volume:/app/static
       - media_volume:/app/media
     depends_on:
-      - app
+      - fast_movies
 
 volumes:
   postgres_data:
