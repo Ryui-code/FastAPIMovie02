@@ -94,5 +94,5 @@ async def refresh(refresh_token: str, db: Session = Depends(get_db)):
     stored_token = db.query(CustomUserRefreshToken).filter(CustomUserRefreshToken.token==refresh_token).first()
     if not stored_token:
         raise HTTPException(status_code=402, detail='Token already exists.')
-    access_token = create_access_token({"sub": stored_token})
+    access_token = create_access_token({"sub": stored_token.id})
     return {'access_token': access_token, 'token_type': 'Bearer'}
