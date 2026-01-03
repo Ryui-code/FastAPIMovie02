@@ -104,7 +104,7 @@ class Actor(Base):
     bio: Mapped[str] = mapped_column(Text, nullable=True)
     created_date: Mapped[date] = mapped_column(Date, default=date.today())
 
-    photo: Mapped[ActorPhoto] = relationship('ActorPhoto', back_populates='actor', uselist=False)
+    photo: Mapped['ActorPhoto'] = relationship('ActorPhoto', back_populates='actor', uselist=False)
     user: Mapped[CustomUser] = relationship(CustomUser, back_populates='users_actor')
     movies_actors: Mapped[Movie] = relationship(Movie, back_populates='actors')
 
