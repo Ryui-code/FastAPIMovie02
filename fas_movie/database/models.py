@@ -78,10 +78,10 @@ class Movie(Base):
     country: Mapped[str] = mapped_column(String, nullable=True)
     created_date: Mapped[date] = mapped_column(Date, default=date.today())
 
-    trailer: Mapped[MovieTrailer] = relationship('MovieTrailer', back_populates='movies_trailer', uselist=False)
-    actors: Mapped[List[Actor]] = relationship('Actor', back_populates='movies_actors')
-    favorite_movie: Mapped[List[FavoriteMovie]] = relationship('FavoriteMovie', back_populates='favorite_movie')
-    rating: Mapped[List[Rating]] = relationship('Rating', back_populates='movies_rating')
+    trailer: Mapped['MovieTrailer'] = relationship('MovieTrailer', back_populates='movies_trailer', uselist=False)
+    actors: Mapped[List['Actor']] = relationship('Actor', back_populates='movies_actors')
+    favorite_movie: Mapped[List['FavoriteMovie']] = relationship('FavoriteMovie', back_populates='favorite_movie')
+    rating: Mapped[List['Rating']] = relationship('Rating', back_populates='movies_rating')
 
 class MovieTrailer(Base):
     __tablename__ = 'movie_trailer'
