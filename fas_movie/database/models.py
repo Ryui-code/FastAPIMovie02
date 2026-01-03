@@ -47,7 +47,7 @@ class CustomUser(Base):
     data_registered: Mapped[date] = mapped_column(Date, default=date.today)
 
     users_actor: Mapped['Actor'] = relationship('Actor', back_populates='user', uselist=False)
-    users_token: Mapped[List[CustomUserRefreshToken]] = relationship(
+    users_token: Mapped[List['CustomUserRefreshToken']] = relationship(
         'CustomUserRefreshToken',
         back_populates='token_user',
         cascade='all, delete-orphan'
