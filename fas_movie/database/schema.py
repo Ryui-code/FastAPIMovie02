@@ -34,8 +34,8 @@ class GenreChoices(str, Enum):
     WAR = "War"
 
 class CustomUserLoginSchema(BaseModel):
-    username: str = Field()
-    password: str = Field()
+    username: str
+    password: str
 
 class CustomUserOutSchema(BaseModel):
     id: int
