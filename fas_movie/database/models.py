@@ -1,4 +1,4 @@
-from fas_movie.database.db import Base
+from .db import Base
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Enum, Integer, String, Date, Text, ForeignKey
 from typing import List, Optional
