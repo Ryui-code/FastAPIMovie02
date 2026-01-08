@@ -40,6 +40,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 
 def create_refresh_token(data: dict):
     return create_access_token(data, expires_delta=timedelta(days=REFRESH_TOKEN_LIFETIME))
+
 @auth_router.post('/register/', response_model=dict, tags=['Auth'])
 async def register(user: CustomUserInputSchema, db: Session = Depends(get_db)):
     username_db = db.query(CustomUser).filter(CustomUser.username==user.username).first()
